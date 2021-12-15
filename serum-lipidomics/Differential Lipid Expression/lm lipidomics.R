@@ -19,7 +19,7 @@ for (cond in unique(lipid.data.new.long$condition)) {
   for (lip in unique(lipid.data.new.long$lipid)) {
     data = lipid.data.new.long %>%
       filter(lipid==lip,condition==cond)
-    fit=lm(log2(value)~genotype+sex,data=data) #maybe ignore interaction effect? (can probably be ignored since, interaction effects show no significant differences)
+    fit=lm(log2(value)~genotype+sex,data=data) 
     results = rbind(
       results,
       broom::tidy(fit) %>%
